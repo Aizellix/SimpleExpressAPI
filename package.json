@@ -1,0 +1,39 @@
+{
+  "name": "simple_express_api",
+  "version": "1.0.0",
+  "description": "Simple RESTful API with Express",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "basic-auth": "^2.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "qs": "^6.9.4",
+    "tsscmp": "^1.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "2.0.5"
+  },
+  "scripts": {
+    "dev": "node index.js",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aizellix/SimpleExpressAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aizellix/SimpleExpressAPI/issues"
+  },
+  "homepage": "https://github.com/Aizellix/SimpleExpressAPI#readme"
+}
