@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Get Future Times</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;500&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    body{
+        font-family: 'Sarabun', sans-serif;
+        font-weight: 300;
+        background-color: #333;
+        color: #fff;
+    }
+
+    b{
+        font-weight: 500;
+    }
+    #currentTime{
+        color: #4094FF;
+    }
+    #timestampA{
+        color: #0070FF;
+        text-decoration: underline
+    }
+    #futureTime{
+        color: #FF805D;
+    }
+    #timestampB{
+        color: #FF410D;
+        text-decoration: underline;
+    }
+    #copy{
+        color: #00B92A;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .title{
+        width: 100px;
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+
+<div>
+    <b class="title">Current Time:</b>
+    <span id="currentTime"></span> : <b id="timestampA"></b>
+</div>
+<div>
+    <b>Set future time: </b>
+    <input name="minInput" id="minInput"/>
+    <b>Mins</b>
+</div>
+<div>
+    <b class="title">Future Time:</b>
+    <span id="futureTime"></span> : <b id="timestampB"></b> | <b id="copy" onclick="copyFutureTimeStamp()">Copy</b>
+</div>
+</body>
+<script>
+var nextMin = 0;
+$(document).ready(function(){
+    $("#minInput").change(function(){
+        nextMin = $("#minInput").val();
+        nextMin = nextMin*(1000*60)
+        //console.log({nextMin})  
+    });
+    setInterval(showTime, 1000);
+});
+
+
+function showTime(){
+    var cuurentTime = new Date().getTime()
+    //console.log({cuurentTime, nextMin, a:cuurentTime+nextMin})  
+    var cuurentTimeText = new Date(cuurentTime).toLocaleString();
+    var futureTimeText = new Date(cuurentTime+nextMin).toLocaleString();
+    var timestampA = Math.ceil(cuurentTime/1000)
+    var timestampB = Math.ceil((cuurentTime+nextMin)/1000)
+    $("#currentTime").html(cuurentTimeText)
+    $("#timestampA").html(timestampA)
+    $("#futureTime").html(futureTimeText)
+    $("#timestampB").html(timestampB)
+}
+
+function copyFutureTimeStamp() {
+  var copyText = $("#timestampB").text();
+
+  navigator.clipboard.writeText(copyText);
+
+  console.log({copy:copyText});
+}
+</script>
+</html>
